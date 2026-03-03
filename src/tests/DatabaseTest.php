@@ -15,11 +15,13 @@ class DatabaseTest extends TestCase
 
         self::$pdo = new PDO(
             "mysql:host=$host;dbname=$db;charset=utf8mb4",
-            $user,
-            $pass
+            $user, $pass
         );
         self::$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         self::$pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+
+        require_once __DIR__ . '/../migrate.php';
+        runMigrations(self::$pdo, __DIR__ . '/..');
     }
 
     // --- Connexion ---
