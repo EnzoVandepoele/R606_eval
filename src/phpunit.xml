@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit bootstrap="vendor/autoload.php"
+        colors="true"
+        stopOnFailure="false">
+    <testsuites>
+        <testsuite name="R606 Test Suite">
+            <directory>tests</directory>
+        </testsuite>
+    </testsuites>
+    <php>
+        <env name="DB_HOST" value="127.0.0.1"/>
+        <env name="DB_NAME" value="ma_bdd"/>
+        <env name="DB_USER" value="db_user"/>
+        <env name="DB_PASS" value="db_pwd"/>
+    </php>
+</phpunit>
